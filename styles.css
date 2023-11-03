@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f0f0;
+}
+
+header, footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+main {
+    margin: 2em;
+}
+
+form {
+    background: #fff;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-top: 1em;
+}
+
+form input, form select, form button {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form button {
+    background: #5cb85c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 1em;
+}
+
+form button:hover {
+    background: #4cae4c;
+}
+
+#results {
+    margin-top: 2em;
+}

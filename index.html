@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CivilMate Estimator</title>
+    <!-- Add your CSS file link here -->
+</head>
+
+<body>
+    <header>
+        <h1>CivilMate Estimator</h1>
+    </header>
+
+    <link rel="stylesheet" href="style.css">
+
+    <main>
+        <form id="material-calculator-form">
+            <label for="project-type">Project Type:</label>
+            <select id="project-type" name="project-type">
+                <option value="concrete-slab">Concrete Slab</option>
+                <option value="brick-wall">Brick Wall</option>
+                <!-- Add other project types as necessary -->
+            </select>
+
+            <label for="dimensions">Dimensions:</label>
+            <input type="text" id="dimensions" name="dimensions" placeholder="Enter dimensions" required>
+
+            <label for="units">Units:</label>
+            <select id="units" name="units">
+                <option value="metric">Metric</option>
+                <option value="imperial">Imperial</option>
+            </select>
+
+            <button type="submit">Calculate</button>
+        </form>
+
+        <section id="results">
+            <!-- Results will be displayed here after calculation -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 CivilMate Estimator</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
