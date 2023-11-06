@@ -1,90 +1,46 @@
-Introduction
+# CivilMate Estimator
 
-CivilMate Estimator is a single-page application (SPA) designed for civil engineers and construction project managers to efficiently estimate project costs, track work hours, material usage, and ensure quality assurance compliance. Built with HTML, CSS, and JavaScript, it interfaces with a public API to facilitate real-time data exchange.
+## Overview
 
-Setup
+CivilMate Estimator is a single-page application (SPA) designed for professionals in the civil engineering and construction field to estimate and record project costs, working hours, material usage, and perform quality assurance checks.
 
-Prerequisites
+## Features
 
-A modern web browser (Chrome, Firefox, Edge, Safari)
-A text editor or IDE (e.g., Visual Studio Code, Sublime Text)
-Node.js and npm (optional, for package management)
+- Interactive forms for inputting project details, including hours and materials.
+- Quality assurance checkpoints to maintain project standards.
+- Data manipulation through a local server mimicking API behavior.
 
+## Installation
 
-Installation
+To run CivilMate Estimator, follow these steps:
 
-Clone the repository or download the ZIP file and extract it to your local machine.
+1. Clone the repository to your local machine.
+2. Ensure that `Node.js` and `npm` are installed on your system.
+3. Install `json-server` globally using `npm`:
+    ```
+    npm install -g json-server
+    ```
+4. Navigate to the project directory and start the local server:
+    ```
+    json-server --watch db.json
+    ```
+    This will serve your `db.json` file as a mock API on `http://localhost:3000`.
+5. Open the `index.html` file in your browser to use the application.
 
-Navigate to the project directory.
+## Development
 
-cd path/to/CivilMate-Estimator
-If you're using npm, install dependencies (if any).
+- HTML5, CSS3, and JavaScript ES6+ are used for front-end development.
+- A mock database, `db.json`, is included for local development without the need for an external API.
+- Utilize modern JavaScript practices to ensure ES6+ compatibility.
 
-npm install
-Open the index.html file in a web browser to run the application.
+## Usage
 
-Features
+Upon opening the `index.html` file in a web browser, users can interact with the form elements to input and submit data. The submission will interact with the local JSON server to simulate API requests.
 
-Single-page application with no redirects.
+## Contributing
 
-Real-time data communication with a public API using JSON format.
+If you'd like to contribute to the project, please fork the repository and use a feature branch. Pull requests are warmly welcome.
 
-Asynchronous API interactions with JavaScript fetch.
+## Licensing
 
-Responsive design implemented with CSS Flexbox/Grid.
-
-Event-driven interactions with JavaScript event listeners.
-
-Usage
-
-To estimate project costs, input hours and material usage in the provided form.
-
-Review quality assurance checkpoints and submit them as part of the project compliance measures.
-
-Use the "like" button for simple interaction, demonstrating the UI responsiveness.
-
-Interact with the SPA without page reloads for a seamless user experience.
-
-API Integration
-
-The application integrates with the Apacta API for craftsmen.
-
-Endpoint
-
-https://app.apacta.com/api/v1
-
-Authentication
-
-API key query authentication is used.
-
-API Capabilities
-
-GET and POST requests to register work hours, material usage, and quality checks.
-
-Handling of standard API responses and HTTP status codes.
-
-Error handling for validation and API exceptions.
-
-Development
-
-This project uses good coding practices, including DRY principles and semantic HTML. For CSS styling, maintainability and accessibility were considered paramount.
-
-Event Listeners
-
-DOMContentLoaded for app initialization.
-
-click for interactive buttons.
-
-change for form inputs and control elements.
-
-Contributing
-
-To contribute to CivilMate Estimator, fork the repository, create a feature branch, and submit a pull request for review.
-
-Support
-
-For support, open an issue in the repository or contact the repository owner.
-
-Author
-
-CivilMate Estimator was developed by Kennedy Ogweno. For further information, please contact kennedy.onyango4@gmail.com.
+The code in this project is licensed under MIT license.
