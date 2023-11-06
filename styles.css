@@ -1,155 +1,75 @@
-/* Reset some basic elements to ensure cross-browser compatibility */
-html, body, div, form, input, label, button, header, main, footer, section {
+/* Apply a basic reset to remove default margins and paddings */
+* {
     margin: 0;
     padding: 0;
-    border: 0;
-}
-
-/* Set a base font-size for responsive text sizing */
-html {
-    font-size: 16px;
-}
-
-/* Apply a universal box-sizing */
-*, *:before, *:after {
     box-sizing: border-box;
 }
 
+/* Apply a font to the body for consistency */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background: #f4f4f4;
-    color: #333;
+    padding: 20px;
 }
 
-/* Header styling */
-header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
-}
-
-header h1 {
-    margin: 0;
-}
-
-/* Main layout styling */
-main {
-    padding: 2rem;
-}
-
-/* Responsive layout with flexbox */
-@media (min-width: 600px) {
-    main {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-}
-
-/* Form styling */
-form {
-    background: #fff;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    border-radius: 5px;
-}
-
-form h2, form h3 {
-    color: #333;
-}
-
-form label {
+/* Style the form inputs and labels */
+label {
     display: block;
-    margin: 0.5rem 0;
+    margin-top: 10px;
+    font-weight: bold;
 }
 
-form input[type="number"],
-form input[type="text"],
-form select,
-form input[type="checkbox"] {
+input[type="text"],
+input[type="number"] {
     width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
     border: 1px solid #ddd;
 }
 
-form button {
-    display: inline-block;
-    padding: 0.7rem 1.5rem;
-    background: #5cb85c;
+/* Style the submit button */
+input[type="submit"] {
+    background-color: #5cb85c;
     color: white;
+    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    margin-right: 0.5rem;
 }
 
-form button:hover {
-    background: #4cae4c;
+input[type="submit"]:hover {
+    background-color: #4cae4c;
 }
 
-/* Accessibility-focused styles for form elements */
-form input[type="checkbox"] {
-    width: auto;
-}
-
-form input:focus, form button:focus {
-    outline: 2px dashed #333;
-    outline-offset: 2px;
-}
-
-/* Table styling */
+/* Style the table */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 1rem;
+    margin-top: 30px;
 }
 
-th, td {
-    text-align: left;
-    padding: 8px;
+table, th, td {
     border: 1px solid #ddd;
 }
 
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
 th {
-    background-color: #333;
-    color: #fff;
+    background-color: #f4f4f4;
 }
 
-td button {
-    padding: 0.5rem 1rem;
+/* Style the table rows with alternating colors for better readability */
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
 }
 
-/* Message display styling */
-#message {
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 5px;
-    text-align: center;
-}
-
-/* Success/Error message styling */
-.success {
-    background-color: #dff0d8;
-    color: #3c763d;
-}
-
-.error {
-    background-color: #f2dede;
-    color: #a94442;
-}
-
-/* Footer styling */
-footer {
-    text-align: center;
-    padding: 1rem 0;
-    background: #333;
-    color: #fff;
-}
-
-footer p {
-    margin: 0;
+/* Add some spacing around the main content */
+.container {
+    max-width: 1170px;
+    margin: auto;
+    overflow: auto;
+    padding: 20px;
 }
