@@ -42,40 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return button;
     }
 
-    // Function to handle form submissions
-    function handleFormSubmit(event) {
-        event.preventDefault();
-        const formData = {
-            hoursWorked: document.getElementById('hoursWorked').value,
-            materialUsed: document.getElementById('materialUsed').value,
-            quality: document.getElementById('quality').value,
-        };
-
-        const endPoint = isEditMode ? `${apiUrl}/${currentEditId}` : apiUrl;
-        const method = isEditMode ? 'PUT' : 'POST';
-
-        createOrUpdateRecord(formData, endPoint, method);
-    }
-
-    // Function to create or update a record
-    function createOrUpdateRecord(data, endPoint, method) {
-        fetch(endPoint, {
-            method: method,
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-        .then(response => response.json())
-        .then(record => {
-            const message = method === 'POST' ? 'Record added successfully' : 'Record updated successfully';
-            displayMessage(message, 'success');
-            resetForm();
-            getRecords();
-        })
-        .catch(error => displayMessage(`Error: ${error}`, 'error'));
-    }
-
     // Function to populate the form for editing
     function populateFormForEdit(record) {
         document.getElementById('hoursWorked').value = record.hoursWorked;
@@ -95,13 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
             getRecords();
         })
         .catch(error => displayMessage(`Error: ${error}`, 'error'));
-    }
-
-    // Function to reset the form and exit edit mode
-    function resetForm() {
-        document.getElementById('workRegisterForm').reset();
-        isEditMode = false;
-        currentEditId = null;
     }
 
     // Function to display a status message
