@@ -86,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Event listeners for your form
-    // Replace 'formSelector' with your actual form selector
     document.querySelector('formSelector').addEventListener('submit', handleFormSubmit);
 
     // Call getRecords on load to populate the page with data
