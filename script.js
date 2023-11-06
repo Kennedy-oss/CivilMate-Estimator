@@ -1,77 +1,53 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const apiUrl = 'http://localhost:3000/records'; // JSON Server URL pointing to records
-
-    let isEditMode = false;
-    let currentEditId = null;
-
-    // Function to list all records
-    function getRecords() {
-        fetch(apiUrl)
+document.addEventListener('DOMContentLoaded', () => {
+    // Function to load records from db.json and populate the table
+    function loadRecords() {
+        fetch('db.json')
             .then(response => response.json())
-            .then(records => renderRecords(records))
-            .catch(error => displayMessage(`Error: ${error}`, 'error'));
+            .then(data => {
+                const records = data.records;
+                const tableBody = document.getElementById('recordsTableBody');
+                // Clear existing table rows
+                tableBody.innerHTML = '';
+  
+                // Iterate over each record and add a row to the table body
+                records.forEach(record => {
+                    let row = tableBody.insertRow();
+                    row.insertCell(0).textContent = record.task;
+                    row.insertCell(1).textContent = record.hours;
+                    row.insertCell(2).textContent = record.materialsUsed;
+                    row.insertCell(3).textContent = record.quality;
+                });
+            })
+            .catch(error => console.error('Error loading records:', error));
     }
-
-    // Function to render records to the table
-    function renderRecords(records) {
-        const tableBody = document.getElementById('recordsTable').getElementsByTagName('tbody')[0];
-        tableBody.innerHTML = '';
-        records.forEach(record => {
-            const row = tableBody.insertRow();
-            row.insertCell(0).textContent = record.hoursWorked;
-            row.insertCell(1).textContent = record.materialUsed;
-            row.insertCell(2).textContent = record.quality;
-            addActions(row, record);
-        });
+  
+    // Function to handle form submission
+    function handleFormSubmit(event) {
+        event.preventDefault();
+  
+        const task = document.getElementById('task').value;
+        const hours = document.getElementById('hours').value;
+        const materialsUsed = document.getElementById('materialsUsed').value;
+        const quality = document.getElementById('quality').value;
+  
+        // Here you would typically make a fetch POST request to your server
+        // Since we don't have a server, we'll simulate adding to the table directly
+        
+        const tableBody = document.getElementById('recordsTableBody');
+        let newRow = tableBody.insertRow();
+        newRow.insertCell(0).textContent = task;
+        newRow.insertCell(1).textContent = hours;
+        newRow.insertCell(2).textContent = materialsUsed;
+        newRow.insertCell(3).textContent = quality;
+  
+        // Reset the form
+        document.getElementById('recordForm').reset();
     }
-
-    // Function to add action buttons to table row
-    function addActions(row, record) {
-        const actionsCell = row.insertCell(3);
-        const editButton = createButton('Edit', () => populateFormForEdit(record));
-        actionsCell.appendChild(editButton);
-        const deleteButton = createButton('Delete', () => deleteRecord(record.id));
-        actionsCell.appendChild(deleteButton);
-    }
-
-    // Function to create a button element
-    function createButton(text, onClick) {
-        const button = document.createElement('button');
-        button.textContent = text;
-        button.onclick = onClick;
-        return button;
-    }
-
-    // Function to populate the form for editing
-    function populateFormForEdit(record) {
-        document.getElementById('hoursWorked').value = record.hoursWorked;
-        document.getElementById('materialUsed').value = record.materialUsed;
-        document.getElementById('quality').value = record.quality;
-        currentEditId = record.id;
-        isEditMode = true;
-    }
-
-    // Function to delete a record
-    function deleteRecord(id) {
-        fetch(`${apiUrl}/${id}`, {
-            method: 'DELETE',
-        })
-        .then(() => {
-            displayMessage('Record deleted successfully', 'success');
-            getRecords();
-        })
-        .catch(error => displayMessage(`Error: ${error}`, 'error'));
-    }
-
-    // Function to display a status message
-    function displayMessage(message, status) {
-        const messageDiv = document.getElementById('message');
-        messageDiv.textContent = message;
-        messageDiv.className = status;
-    }
-
-    getRecords();
-});
-
-// Listen for form submission outside of the 'DOMContentLoaded' event
-document.getElementById('workRegisterForm').addEventListener('submit', handleFormSubmit);
+  
+    // Load the records when the DOM is fully loaded
+    loadRecords();
+  
+    // Add the event listener to the form for the submit event
+    document.getElementById('recordForm').addEventListener('submit', handleFormSubmit);
+  });
+  
