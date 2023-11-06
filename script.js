@@ -115,4 +115,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Listen for form submission outside of the 'DOMContentLoaded' event
-document.getElementById('workRegisterForm').addEventListener('submit', handleForm
+document.getElementById('workRegisterForm').addEventListener('submit', handleFormSubmit);
