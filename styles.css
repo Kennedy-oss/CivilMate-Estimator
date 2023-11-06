@@ -1,53 +1,120 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset some basic elements to ensure cross-browser compatibility */
+html, body, div, form, input, label, button, header, main, footer, section {
     margin: 0;
     padding: 0;
-    background: #f0f0f0;
+    border: 0;
 }
 
-header, footer {
+/* Set a base font-size for responsive text sizing */
+html {
+    font-size: 16px;
+}
+
+/* Apply a universal box-sizing */
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #f4f4f4;
+    color: #333;
+}
+
+/* Header styling */
+header {
     background: #333;
     color: #fff;
+    padding: 1rem 0;
     text-align: center;
-    padding: 1em 0;
 }
 
+header h1 {
+    margin: 0;
+}
+
+/* Main layout styling */
 main {
-    margin: 2em;
+    padding: 2rem;
 }
 
+/* Responsive layout with flexbox */
+@media (min-width: 600px) {
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+/* Form styling */
 form {
     background: #fff;
-    padding: 2em;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+form h2, form h3 {
+    color: #333;
 }
 
 form label {
     display: block;
-    margin-top: 1em;
+    margin: 0.5rem 0;
 }
 
-form input, form select, form button {
+form input[type="number"],
+form input[type="text"],
+form input[type="checkbox"] {
     width: 100%;
-    padding: 0.5em;
-    margin-top: 0.5em;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
     border: 1px solid #ddd;
-    border-radius: 4px;
 }
 
-form button {
+form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 0.7rem;
     background: #5cb85c;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 1em;
 }
 
-form button:hover {
+form button[type="submit"]:hover {
     background: #4cae4c;
 }
 
-#results {
-    margin-top: 2em;
+/* Accessibility-focused styles for form elements */
+form input[type="checkbox"] {
+    width: auto;
+}
+
+form input:focus, form button:focus {
+    outline: 2px dashed #333;
+    outline-offset: 2px;
+}
+
+/* Section for API responses */
+#responseSection {
+    padding: 1rem;
+    background: #e2e2e2;
+    border-radius: 5px;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: #333;
+    color: #fff;
+}
+
+footer p {
+    margin: 0;
 }
