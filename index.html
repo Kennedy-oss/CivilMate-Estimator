@@ -32,11 +32,14 @@
                     <!-- Quality Assurance Section -->
                     <h3>Quality Assurance</h3>
                     <label for="quality">Quality:</label>
-                    <select id="quality" name="quality">
+                    <select id="quality" name="quality" required>
                         <option value="good">Good</option>
                         <option value="satisfactory">Satisfactory</option>
                         <option value="excellent">Excellent</option>
                     </select>
+                    
+                    <!-- Placeholder for success/error messages -->
+                    <div id="message"></div>
                     
                     <!-- Submission Button -->
                     <button type="submit">Submit</button>
