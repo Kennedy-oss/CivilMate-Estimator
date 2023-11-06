@@ -67,6 +67,7 @@ form label {
 
 form input[type="number"],
 form input[type="text"],
+form select,
 form input[type="checkbox"] {
     width: 100%;
     padding: 0.5rem;
@@ -75,18 +76,18 @@ form input[type="checkbox"] {
     border: 1px solid #ddd;
 }
 
-form button[type="submit"] {
-    display: block;
-    width: 100%;
-    padding: 0.7rem;
+form button {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
     background: #5cb85c;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-right: 0.5rem;
 }
 
-form button[type="submit"]:hover {
+form button:hover {
     background: #4cae4c;
 }
 
@@ -100,11 +101,45 @@ form input:focus, form button:focus {
     outline-offset: 2px;
 }
 
-/* Section for API responses */
-#responseSection {
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #333;
+    color: #fff;
+}
+
+td button {
+    padding: 0.5rem 1rem;
+}
+
+/* Message display styling */
+#message {
     padding: 1rem;
-    background: #e2e2e2;
+    margin-bottom: 1rem;
     border-radius: 5px;
+    text-align: center;
+}
+
+/* Success/Error message styling */
+.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+.error {
+    background-color: #f2dede;
+    color: #a94442;
 }
 
 /* Footer styling */
