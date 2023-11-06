@@ -1,0 +1,75 @@
+{
+    "records": [
+      {
+        "id": 1,
+        "task": "Cutting metal sheets",
+        "hours": 4.5,
+        "materialsUsed": "Metal sheets",
+        "quality": "Good"
+      },
+      {
+        "id": 2,
+        "task": "Welding support beams",
+        "hours": 3,
+        "materialsUsed": "Steel beams",
+        "quality": "Excellent"
+      },
+      {
+        "id": 3,
+        "task": "Assembling framework",
+        "hours": 5,
+        "materialsUsed": "Screws and plates",
+        "quality": "Satisfactory"
+      },
+      {
+        "id": 4,
+        "task": "Laying bricks",
+        "hours": 7,
+        "materialsUsed": "Bricks and mortar",
+        "quality": "Excellent"
+      },
+      {
+        "id": 5,
+        "task": "Plastering walls",
+        "hours": 6,
+        "materialsUsed": "Plaster",
+        "quality": "Good"
+      },
+      {
+        "id": 6,
+        "task": "Installing pipes",
+        "hours": 4,
+        "materialsUsed": "PVC pipes",
+        "quality": "Good"
+      },
+      {
+        "id": 7,
+        "task": "Painting exterior",
+        "hours": 3.5,
+        "materialsUsed": "Paint and brushes",
+        "quality": "Excellent"
+      },
+      {
+        "id": 8,
+        "task": "Electrical wiring",
+        "hours": 5.5,
+        "materialsUsed": "Wires and electrical tape",
+        "quality": "Satisfactory"
+      },
+      {
+        "id": 9,
+        "task": "Roof tiling",
+        "hours": 8,
+        "materialsUsed": "Tiles and cement",
+        "quality": "Good"
+      },
+      {
+        "id": 10,
+        "task": "Laying foundations",
+        "hours": 9,
+        "materialsUsed": "Concrete and rebar",
+        "quality": "Excellent"
+      }
+    ]
+  }
+  
