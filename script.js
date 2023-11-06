@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Function to populate form with record's data for editing
     function populateFormForEdit(data) {
         document.getElementById('hoursWorked').value = data.hoursWorked;
         document.getElementById('materialUsed').value = data.materialUsed;
@@ -59,70 +58,73 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Function to create or update a new record
-    function createOrUpdateRecord(data, id = null) {
-        const method = id ? 'PUT' : 'POST';
-        const url = id ? `${apiUrl}/records/${id}` : `${apiUrl}/records`;
-
-        fetch(url, {
-            method: method,
+    // Function to create a new record
+    function createRecord(data) {
+        fetch(`${apiUrl}/records`, {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
         })
-            .then(response => response.json())
-            .then(() => {
-                displayMessage('Success: Record has been processed', 'success');
-                resetForm();
-                getRecords(); // Refresh the list with the new record
-            })
-            .catch((error) => {
-                displayMessage(`Error: ${error}`, 'error');
-            });
+        .then(response => response.json())
+        .then(record => {
+            displayMessage('Record added successfully', 'success');
+            appendRecordToTable(record);
+        })
+        .catch(error => displayMessage(`Error: ${error}`, 'error'));
     }
 
-    // Function to reset form and mode
+    // Function to append a record to the table
+    function appendRecordToTable(record) {
+        const tableBody = document.getElementById('recordsTable').getElementsByTagName('tbody')[0];
+        const row = tableBody.insertRow();
+        row.insertCell(0).textContent = record.hoursWorked;
+        row.insertCell(1).textContent = record.materialUsed;
+        row.insertCell(2).textContent = record.quality;
+        const actionsCell = row.insertCell(3);
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.onclick = function() { editRecord(record); };
+        actionsCell.appendChild(editButton);
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.onclick = function() { deleteRecord(record.id); };
+        actionsCell.appendChild(deleteButton);
+    }
+
     function resetForm() {
         document.getElementById('workRegisterForm').reset();
         isEditMode = false;
         currentEditId = null;
     }
 
-    // Function to edit a record
     function editRecord(record) {
         populateFormForEdit(record);
     }
 
-    // Function to update a record
     function updateRecord(id, data) {
         createOrUpdateRecord(data, id);
     }
 
-    // Function to delete a record
     function deleteRecord(id) {
         fetch(`${apiUrl}/records/${id}`, {
             method: 'DELETE',
         })
-            .then(() => {
-                displayMessage('Record deleted successfully', 'success');
-                getRecords(); // Refresh the list to reflect the deletion
-            })
-            .catch(error => {
-                displayMessage(`Error: ${error}`, 'error');
-            });
+        .then(() => {
+            displayMessage('Record deleted successfully', 'success');
+            getRecords(); // Refresh the list to reflect the deletion
+        })
+        .catch(error => displayMessage(`Error: ${error}`, 'error'));
     }
 
-    // Function to display messages to the user
     function displayMessage(message, status) {
         const messageDiv = document.getElementById('message');
         messageDiv.textContent = message;
         messageDiv.className = status; // Use these classes to style the message (e.g., color)
     }
 
-    // Event listener for the form submission
     document.getElementById('workRegisterForm').addEventListener('submit', handleFormSubmit);
 
-    // Initial call to populate the table with records
     getRecords();
 });
