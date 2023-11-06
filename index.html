@@ -3,73 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work Record Management System</title>
+    <title>CivilMate Estimator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="app">
-        <!-- Header section -->
-        <header>
-            <h1>Work Record Management System</h1>
-        </header>
-        
-        <!-- Main content section -->
-        <main>
-            <!-- Form for inputting work record -->
-            <section>
-                <form id="workRegisterForm">
-                    <h2>Register Work Record</h2>
-                    
-                    <!-- Working Hours Input -->
-                    <label for="hoursWorked">Hours Worked:</label>
-                    <input type="number" id="hoursWorked" name="hoursWorked" required>
 
-                    <!-- Material Usage Input -->
-                    <label for="materialUsed">Material Used:</label>
-                    <input type="text" id="materialUsed" name="materialUsed" required>
-                    
-                    <!-- Quality Assurance Input -->
-                    <label for="quality">Quality:</label>
-                    <select id="quality" name="quality" required>
-                        <option value="High">High</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Low">Low</option>
-                    </select>
-                    
-                    <!-- Placeholder for success/error messages -->
-                    <div id="message"></div>
-                    
-                    <!-- Submission Button -->
-                    <button type="submit">Submit</button>
-                </form>
-            </section>
+<div class="container">
+    <h1>Work Hours and Materials Record</h1>
 
-            <!-- Section for displaying records in a table -->
-            <section>
-                <h2>Recorded Work</h2>
-                <table id="recordsTable">
-                    <thead>
-                        <tr>
-                            <th>Hours Worked</th>
-                            <th>Material Used</th>
-                            <th>Quality</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Records will be appended here dynamically -->
-                    </tbody>
-                </table>
-            </section>
-        </main>
-        
-        <!-- Footer section -->
-        <footer>
-            <p>© 2023 Work Record Management</p>
-        </footer>
-    </div>
-    
-    <!-- Linking the main JavaScript file -->
-    <script src="scripts.js"></script>
+    <!-- Form for new record entry -->
+    <form id="recordForm">
+        <label for="task">Task:</label>
+        <input type="text" id="task" name="task" required>
+
+        <label for="hours">Hours Worked:</label>
+        <input type="number" id="hours" name="hours" step="0.1" required>
+
+        <label for="materialsUsed">Material Used:</label>
+        <input type="text" id="materialsUsed" name="materialsUsed" required>
+
+        <label for="quality">Quality:</label>
+        <input type="text" id="quality" name="quality" required>
+
+        <input type="submit" value="Add Record">
+    </form>
+
+    <!-- Table for displaying records -->
+    <table>
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Hours Worked</th>
+                <th>Materials Used</th>
+                <th>Quality</th>
+            </tr>
+        </thead>
+        <tbody id="recordsTableBody">
+            <!-- Records will be inserted here by JavaScript -->
+        </tbody>
+    </table>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
